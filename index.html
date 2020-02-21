@@ -78,6 +78,17 @@
             $("a#image8").fancybox();
 
             $("a[rel=example_group]").fancybox({
+                afterShow: function() {
+	            $('.fancybox-wrap').swipe({
+	                swipe : function(event, direction) {
+	                    if (direction === 'left' || direction === 'up') {
+	                        $.fancybox.prev( direction );
+	                    } else {
+	                        $.fancybox.next( direction );
+	                    }
+	                }
+	            });
+	        },
                 'transitionIn': 'none',
                 'transitionOut': 'none',
                 'titlePosition': 'over',
@@ -128,20 +139,7 @@
                 'transitionIn': 'none',
                 'transitionOut': 'none'
             });
-            // add_swipe
-            $(".fancybox").fancybox({
-                afterShow: function () {
-                    $(".fancybox-wrap").swipe({
-                        swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-                            if (direction == "left") {
-                                $.fancybox.prev(direction);
-                            } else {
-                                $.fancybox.prev(direction);
-                            }
-                        }
-                    });
-                } // afterShow
-            });
+
         });
     </script>
     <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
@@ -743,6 +741,24 @@
         });
     });
 </script>
+<!--<script type="text/javascript">-->
+    <!--// add_swipe-->
+            <!--$(".fancybox")-->
+                <!--.attr('rel', 'gallery')-->
+                <!--.fancybox({-->
+                    <!--afterShow: function () {-->
+                        <!--$('.fancybox-wrap').swipe({-->
+                            <!--swipe: function (event, direction) {-->
+                                <!--if (direction === 'left' || direction === 'up') {-->
+                                    <!--$.fancybox.prev(direction);-->
+                                <!--} else {-->
+                                    <!--$.fancybox.next(direction);-->
+                                <!--}-->
+                            <!--}-->
+                        <!--});-->
+                    <!--}-->
+                <!--});-->
+<!--</script>-->
 <script type="text/javascript" src="js/custom_junky_script.js"></script>
 
 </body>
