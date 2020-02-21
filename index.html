@@ -128,20 +128,6 @@
                 'transitionIn': 'none',
                 'transitionOut': 'none'
             });
-            // add_swipe
-            $(".fancybox").fancybox({
-                afterShow: function () {
-                    $(".fancybox-wrap").swipe({
-                        swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-                            if (direction == "left") {
-                                $.fancybox.prev(direction);
-                            } else {
-                                $.fancybox.prev(direction);
-                            }
-                        }
-                    });
-                } // afterShow
-            });
         });
     </script>
     <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->

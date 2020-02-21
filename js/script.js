@@ -231,6 +231,31 @@ $(document).ready(function(){
 	}
 	
 	$("a.zoom").fancybox({
+		prevEffect  : 'fade',
+        nextEffect  : 'fade',
+        helpers : {
+            thumbs  : {
+                width   : 50,
+                height  : 50
+            }
+        },
+        beforeShow: function () {
+            var imgAlt = $(this.element).find("img").attr("alt");
+            if (imgAlt) {
+                $(".fancybox-image").attr("alt", imgAlt);
+            }
+        },
+        afterShow: function() {
+            $('.fancybox-wrap').swipe({
+                swipe : function(event, direction) {
+                    if (direction === 'left' || direction === 'up') {
+                        $.fancybox.prev( direction );
+                    } else {
+                        $.fancybox.next( direction );
+                    }
+                }
+            });
+        },
 		'opacity'		: true,
 		'overlayColor'	: '#000',
 		'overlayOpacity' : 0.8,
